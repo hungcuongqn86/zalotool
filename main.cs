@@ -71,6 +71,7 @@ namespace transtrusttool
         private void Loading(bool status)
         {
             btnAuto1.Enabled = status;
+            button1.Enabled = status;
         }
 
         private void BtnAuto1_Click(object sender, EventArgs e)
