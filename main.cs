@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using transtrusttool.Utils;
 using System.Data.OleDb;
+using System.Text.RegularExpressions;
+using System.Data;
 
 namespace transtrusttool
 {
@@ -100,17 +102,41 @@ namespace transtrusttool
             try
             {
                 OpenFileDialog openfile1 = new OpenFileDialog();
+                openfile1.Filter = "Excel Files (*.xlsx) |*.xlsx";
+                openfile1.FilterIndex = 3;
+                openfile1.Multiselect = false;
+                openfile1.InitialDirectory = @"Desktop";
+
                 if (openfile1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    this.textBox1.Text = openfile1.FileName;
-                }
-                {
-                    string pathconn = "Provider = Microsoft.jet.OLEDB.4.0; Data source=" + textBox1.Text + ";Extended Properties=\"Excel 8.0;HDR= yes;\";";
-                    OleDbConnection conn = new OleDbConnection(pathconn);
-                    // OleDbDataAdapter MyDataAdapter = new OleDbDataAdapter("Select * from [" + textBox2.Text + "$]", conn);
-                    // DataTable dt = new DataTable();
-                    // MyDataAdapter.Fill(dt);
-                    // dataGridView1.DataSource = dt;
+                    string pathName = openfile1.FileName;
+                    this.textBox1.Text = pathName;
+
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog1.FileName);
+                    DataTable tbContainer = new DataTable();
+                    string strConn = string.Empty;
+                    string sheetName = fileName;
+
+                    FileInfo file = new FileInfo(pathName);
+                    if (!file.Exists) { throw new Exception("Error, file doesn't exists!"); }
+                    string extension = file.Extension;
+                    switch (extension)
+                    {
+                        case ".xls":
+                            strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + pathName + ";Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'";
+                            break;
+                        case ".xlsx":
+                            strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathName + ";Extended Properties='Excel 12.0;HDR=Yes;IMEX=1;'";
+                            break;
+                        default:
+                            strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + pathName + ";Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'";
+                            break;
+                    }
+                    OleDbConnection cnnxls = new OleDbConnection(strConn);
+                    OleDbDataAdapter oda = new OleDbDataAdapter(string.Format("select * from [{0}$]", sheetName), cnnxls);
+                    oda.Fill(tbContainer);
+
+                    // dtGrid.DataSource = tbContainer;
                 }
             }
             catch (Exception error)
