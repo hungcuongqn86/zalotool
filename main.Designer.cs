@@ -36,28 +36,31 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnAuto1);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(525, 71);
+            this.groupBox1.Size = new System.Drawing.Size(525, 207);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chọn file dữ liệu và nhấn Thực hiện!";
+            this.groupBox1.Text = "Chọn file dữ liệu, nhập nội dung và nhấn Thực hiện!";
             // 
             // textBox1
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(118, 26);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(309, 20);
+            this.textBox1.Size = new System.Drawing.Size(392, 20);
             this.textBox1.TabIndex = 5;
             // 
             // button1
@@ -72,7 +75,7 @@
             // 
             // btnAuto1
             // 
-            this.btnAuto1.Location = new System.Drawing.Point(444, 24);
+            this.btnAuto1.Location = new System.Drawing.Point(445, 169);
             this.btnAuto1.Name = "btnAuto1";
             this.btnAuto1.Size = new System.Drawing.Size(65, 26);
             this.btnAuto1.TabIndex = 4;
@@ -109,11 +112,29 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(15, 54);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(495, 109);
+            this.textBox2.TabIndex = 6;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(12, 240);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(525, 383);
+            this.listView1.TabIndex = 5;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(549, 118);
+            this.ClientSize = new System.Drawing.Size(549, 637);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -137,6 +158,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

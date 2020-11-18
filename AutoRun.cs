@@ -21,6 +21,7 @@ namespace transtrusttool
         public bool working = false;
         public string email;
         public string pass;
+        public bool loginStatus = false;
         public AutoRun(string profileName, string email, string pass)
         {
             this.email = email;
@@ -59,7 +60,7 @@ namespace transtrusttool
 
         private void login()
         {
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(3000);
             string url = chromeDriver.Url;
             if (url.Contains("id.zalo.me/account"))
             {
@@ -107,12 +108,12 @@ namespace transtrusttool
             if (url.Contains("id.zalo.me/account"))
             {
                 logWriter.LogWrite("Login fall!");
-                // chromeDriver.Quit();
                 MessageBox.Show("Đăng nhập không thành công! hãy đăng nhập zalo trên chrome trên trình duyệt và thực hiện lại!", "Login...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             logWriter.LogWrite("login...");
+            loginStatus = true;
         }
 
         public void Dispose()
@@ -123,11 +124,41 @@ namespace transtrusttool
             }
         }
 
-        public void RunAuto(string endpoint, string submission)
+        public bool RunAuto(string phone, string content)
         {
-            working = true;
-            
-            working = false;
+            bool res = false;
+            // SendKeys phone
+            ReadOnlyCollection<IWebElement> eSearchInput = chromeDriver.FindElements(By.Id("contact-search-input"));
+            if (eSearchInput.Count > 0)
+            {
+                eSearchInput.First().Clear(); ;
+                eSearchInput.First().SendKeys(phone);
+                System.Threading.Thread.Sleep(2000);
+
+                //searchResultList
+                ReadOnlyCollection<IWebElement> searchResultList = chromeDriver.FindElements(By.Id("searchResultList"));
+                IWebElement firtItem = searchResultList.First().FindElement(By.XPath("//div[contains(@class, 'list-friend-conctact') and contains(@class, 'item')]"));
+                if (firtItem != null)
+                {
+                    firtItem.Click();
+                    System.Threading.Thread.Sleep(1000);
+                    IWebElement chatbox = chromeDriver.FindElement(By.Id("input_line_0"));
+                    if (chatbox != null)
+                    {
+                        // chromeDriver.ExecuteScript("arguments[0].innerText = '" + content + "'", chatbox);
+                        chatbox.SendKeys(content);
+                        System.Threading.Thread.Sleep(1000);
+                        IWebElement sendBtn = chromeDriver.FindElement(By.Id("sendBtn"));
+                        if (sendBtn != null)
+                        {
+                            sendBtn.Click();
+                            res = true;
+                        }
+                    }
+                }
+                
+            }
+            return res;
         }
 
         private void WaitLoading()

@@ -80,6 +80,10 @@ namespace transtrusttool
             Loading(false);
             autoRun = new AutoRun("zalotool", this.Configuration.Imap4UserName,
                 this.Configuration.Imap4Password);
+            if (autoRun.loginStatus)
+            {
+                autoRun.RunAuto("0387495984", this.textBox2.Text);
+            }
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
