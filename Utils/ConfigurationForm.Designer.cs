@@ -29,16 +29,10 @@ namespace transtrusttool.Utils
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this._tbImap4Server = new System.Windows.Forms.TextBox();
-            this._lImap4Server = new System.Windows.Forms.Label();
             this._tbImap4Password = new System.Windows.Forms.TextBox();
             this._lImap4Password = new System.Windows.Forms.Label();
             this._tbImap4Username = new System.Windows.Forms.TextBox();
             this._lImap4Username = new System.Windows.Forms.Label();
-            this._tbTransperfectEmail = new System.Windows.Forms.TextBox();
-            this._lTransperfectEmail = new System.Windows.Forms.Label();
-            this._tbTransperfectPass = new System.Windows.Forms.TextBox();
-            this._lTransperfectPass = new System.Windows.Forms.Label();
 
             this._bCancel = new System.Windows.Forms.Button();
             this._bSave = new System.Windows.Forms.Button();
@@ -50,43 +44,16 @@ namespace transtrusttool.Utils
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this._tbImap4Server);
-            this.groupBox1.Controls.Add(this._lImap4Server);
             this.groupBox1.Controls.Add(this._tbImap4Password);
             this.groupBox1.Controls.Add(this._lImap4Password);
             this.groupBox1.Controls.Add(this._tbImap4Username);
             this.groupBox1.Controls.Add(this._lImap4Username);
-            this.groupBox1.Controls.Add(this._tbTransperfectEmail);
-            this.groupBox1.Controls.Add(this._lTransperfectEmail);
-            this.groupBox1.Controls.Add(this._tbTransperfectPass);
-            this.groupBox1.Controls.Add(this._lTransperfectPass);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(542, 170);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Account 1";
-
-            // 
-            // _tbImap4Server
-            // 
-            this._tbImap4Server.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this._tbImap4Server.Location = new System.Drawing.Point(142, 71);
-            this._tbImap4Server.Name = "_tbImap4Server";
-            this._tbImap4Server.Size = new System.Drawing.Size(397, 20);
-            this._tbImap4Server.TabIndex = 5;
-
-            // 
-            // _lImap4Server
-            // 
-            this._lImap4Server.Location = new System.Drawing.Point(9, 71);
-            this._lImap4Server.Name = "_lImap4Server";
-            this._lImap4Server.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this._lImap4Server.Size = new System.Drawing.Size(126, 19);
-            this._lImap4Server.TabIndex = 4;
-            this._lImap4Server.Text = "Server :";
-            this._lImap4Server.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
             // 
             // _tbImap4Password
@@ -129,49 +96,6 @@ namespace transtrusttool.Utils
             this._lImap4Username.TabIndex = 0;
             this._lImap4Username.Text = "User name :";
             this._lImap4Username.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            // 
-            // _lTransperfectEmail
-            // 
-            this._lTransperfectEmail.Location = new System.Drawing.Point(9, 97);
-            this._lTransperfectEmail.Name = "_lTransperfectEmail";
-            this._lTransperfectEmail.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this._lTransperfectEmail.Size = new System.Drawing.Size(126, 19);
-            this._lTransperfectEmail.TabIndex = 0;
-            this._lTransperfectEmail.Text = "TransperfectEmail :";
-            this._lTransperfectEmail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            // 
-            // _tbTransperfectEmail
-            // 
-            this._tbTransperfectEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this._tbTransperfectEmail.Location = new System.Drawing.Point(142, 97);
-            this._tbTransperfectEmail.Name = "_tbTransperfectEmail";
-            this._tbTransperfectEmail.Size = new System.Drawing.Size(397, 20);
-            this._tbTransperfectEmail.TabIndex = 1;
-
-
-            // 
-            // _lTransperfectPass
-            // 
-            this._lTransperfectPass.Location = new System.Drawing.Point(9, 123);
-            this._lTransperfectPass.Name = "_lTransperfectPass";
-            this._lTransperfectPass.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this._lTransperfectPass.Size = new System.Drawing.Size(126, 19);
-            this._lTransperfectPass.TabIndex = 0;
-            this._lTransperfectPass.Text = "TransperfectPass :";
-            this._lTransperfectPass.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-            // 
-            // _tbTransperfectPass
-            // 
-            this._tbTransperfectPass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this._tbTransperfectPass.Location = new System.Drawing.Point(142, 123);
-            this._tbTransperfectPass.Name = "_tbTransperfectPass";
-            this._tbTransperfectPass.Size = new System.Drawing.Size(397, 20);
-            this._tbTransperfectPass.TabIndex = 1;
 
             // 
             // _bCancel
@@ -225,16 +149,10 @@ namespace transtrusttool.Utils
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox _tbImap4Server;
-        private System.Windows.Forms.Label _lImap4Server;
         private System.Windows.Forms.TextBox _tbImap4Password;
         private System.Windows.Forms.Label _lImap4Password;
         private System.Windows.Forms.TextBox _tbImap4Username;
         private System.Windows.Forms.Label _lImap4Username;
-        private System.Windows.Forms.TextBox _tbTransperfectEmail;
-        private System.Windows.Forms.Label _lTransperfectEmail;
-        private System.Windows.Forms.TextBox _tbTransperfectPass;
-        private System.Windows.Forms.Label _lTransperfectPass;
 
         private System.Windows.Forms.Button _bCancel;
         private System.Windows.Forms.Button _bSave;

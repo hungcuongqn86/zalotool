@@ -26,8 +26,6 @@ namespace transtrusttool
             logWriter = new LogWriter("Open app...");
             InitializeComponent();
             thisForm = this;
-            label1.Text = this.Configuration.TransperfectEmail;
-            label2.Text = this.Configuration.TransperfectEmail2;
         }
 
         public SamplesConfiguration Configuration
@@ -72,11 +70,6 @@ namespace transtrusttool
         private void Loading(bool status)
         {
             btnAuto1.Enabled = status;
-            btnAuto2.Enabled = status;
-            account1_start_btn.Enabled = status;
-            account1TptRun.Enabled = status;
-            account2_start_btn.Enabled = status;
-            account2TptRun.Enabled = status;
         }
 
         private void BtnAuto1_Click(object sender, EventArgs e)

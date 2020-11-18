@@ -26,9 +26,6 @@ namespace transtrusttool.Utils
                 // Imap4
                 _tbImap4Username.Text = _config.Imap4UserName;
                 _tbImap4Password.Text = _config.Imap4Password;
-                _tbImap4Server.Text = _config.Imap4Server;
-                _tbTransperfectEmail.Text = _config.TransperfectEmail;
-                _tbTransperfectPass.Text = _config.TransperfectPass;
             }
         }
 
@@ -39,10 +36,6 @@ namespace transtrusttool.Utils
                 // Imap4
                 _config.Imap4UserName = _tbImap4Username.Text;
                 _config.Imap4Password = _tbImap4Password.Text;
-                _config.Imap4Server = _tbImap4Server.Text;
-                _config.TransperfectEmail = _tbTransperfectEmail.Text;
-                _config.TransperfectPass = _tbTransperfectPass.Text;
-
                 _config.Save();
             }
 
