@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoRun.cs" />
-    <Compile Include="IdleClient.cs" />
     <Compile Include="LogWriter.cs" />
     <Compile Include="main.cs">
       <SubType>Form</SubType>

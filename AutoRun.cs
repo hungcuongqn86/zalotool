@@ -17,15 +17,11 @@ namespace transtrusttool
         public LogWriter logWriter;
         public ChromeDriver chromeDriver;
         public string submissionId;
-        // string dashboardUrl = "https://dashboard.transperfect.com/";
-        public string tdcAvaliableUrl = "https://gl-tdcprod1.translations.com/PD/#userMenuAVAILABLE_SUBMISSION";
-        public string tptAvaliableUrl = "https://gl-tptprod1.transperfect.com/PD/#userMenuAVAILABLE_SUBMISSION";
-        public string avaliableUrl = "https://gl-tdcprod1.translations.com/PD/#userMenuAVAILABLE_SUBMISSION";
+        public string webUrl = "https://chat.zalo.me/";
         public bool working = false;
         public string email;
         public string pass;
-        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
-        public AutoRun(string imap4UserName, string email, string pass)
+        public AutoRun(string profileName, string email, string pass)
         {
             this.email = email;
             this.pass = pass;
@@ -46,73 +42,19 @@ namespace transtrusttool
             }
 
             ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--user-data-dir=" + profilePath + "/" + imap4UserName);
-            options.AddArgument("profile-directory=" + imap4UserName);
+            options.AddArgument("--user-data-dir=" + profilePath + "/" + profileName);
+            options.AddArgument("profile-directory=" + profileName);
             options.AddArgument("disable-infobars");
             options.AddArgument("--disable-extensions");
             options.AddArgument("--start-maximized");
             chromeDriver = new ChromeDriver(options)
             {
-                Url = tdcAvaliableUrl
+                Url = webUrl
             };
             chromeDriver.Navigate();
             WaitLoading();
 
             login();
-
-            myTimer.Tick += new EventHandler(TimerEventProcessor);
-            myTimer.Interval = 300000;
-            myTimer.Start();
-        }
-
-        private void TimerEventProcessor(Object myObject,
-                                        EventArgs myEventArgs)
-        {
-            if (working == false)
-            {
-                chromeDriver.Navigate().Refresh();
-                // if end session
-                System.Threading.Thread.Sleep(5000);
-                ReadOnlyCollection<IWebElement> msgErrorBox = chromeDriver.FindElements(By.Id("errorMessage-title"));
-                if (msgErrorBox.Count > 0)
-                {
-                    ReadOnlyCollection<IWebElement> buttonClose = chromeDriver.FindElements(By.Id("errorMessage-closeButton"));
-                    if (buttonClose.Count > 0)
-                    {
-                        string tbuttonClose = buttonClose.First().TagName;
-                        if (tbuttonClose == "button")
-                        {
-                            buttonClose.First().Click();
-                        }
-                        WaitLoading();
-                        login();
-                    }
-                }
-
-                ReadOnlyCollection<IWebElement> sessionTerminatedErrorBox = chromeDriver.FindElements(By.XPath("//div[text()='Session terminated' and contains(@id, 'innerCt')]"));
-                if (sessionTerminatedErrorBox.Count > 0)
-                {
-                    ReadOnlyCollection<IWebElement> buttonClose = chromeDriver.FindElements(By.XPath("//span[text()='Close' and contains(@id, 'btnInnerEl')]"));
-                    if (buttonClose.Count > 0)
-                    {
-                        IWebElement abuttonClose = buttonClose.First().FindElement(By.XPath("..")).FindElement(By.XPath("..")).FindElement(By.XPath(".."));
-                        string tbuttonClose = abuttonClose.TagName;
-                        if (tbuttonClose == "a")
-                        {
-                            abuttonClose.Click();
-                        }
-                        WaitLoading();
-                        login();
-                    }
-                }
-
-                // If logout
-                ReadOnlyCollection<IWebElement> loginForm = chromeDriver.FindElements(By.Id("loginForm"));
-                if (loginForm.Count > 0)
-                {
-                    login();
-                }
-            }
         }
 
         private void login()
@@ -133,7 +75,7 @@ namespace transtrusttool
                 }
             }
 
-            url = chromeDriver.Url;
+            /*url = chromeDriver.Url;
             if (url.Contains("sso.transperfect.com/Account/Login"))
             {
                 // SendKeys email
@@ -201,7 +143,7 @@ namespace transtrusttool
                     abuttonClose.Click();
                 }
                 WaitLoading();
-            }
+            }*/
         }
 
         public void Dispose()
@@ -215,169 +157,8 @@ namespace transtrusttool
         public void RunAuto(string endpoint, string submission)
         {
             working = true;
-            // string msg = "Email " + imap4UserName + ", Subject: " + subject;
-            this.logWriter.LogWrite(String.Format("RunAuto: {0} - {1}", endpoint, submission));
-            submissionId = submission;
-            if (endpoint == "TDC-PD")
-            {
-                avaliableUrl = tdcAvaliableUrl;
-            }
-            if (endpoint == "TPT-PD")
-            {
-                avaliableUrl = tptAvaliableUrl;
-            }
-
-            // Open newtab
-            chromeDriver.SwitchTo().Window(chromeDriver.WindowHandles.First());
-            System.Threading.Thread.Sleep(1000);
-            ReadOnlyCollection<IWebElement> availableTab = chromeDriver.FindElements(By.XPath("//a[contains(@href, 'translations.com')]"));
-            if (availableTab.Count > 0)
-            {
-                IWebElement availableLink = availableTab.First();
-                String selectLinkOpeninNewTab = Keys.Control + Keys.Return;
-                availableLink.SendKeys(selectLinkOpeninNewTab);
-                WaitLoading();
-                chromeDriver.SwitchTo().Window(chromeDriver.WindowHandles.Last());
-                chromeDriver.Navigate().GoToUrl(avaliableUrl);
-                WaitLoading();
-                Autoget();
-                chromeDriver.Close();
-            }
-            chromeDriver.SwitchTo().Window(chromeDriver.WindowHandles.First());
+            
             working = false;
-        }
-
-        public void Autoget()
-        {
-            System.Threading.Thread.Sleep(5000);
-            ReadOnlyCollection<IWebElement> buttonClose = chromeDriver.FindElements(By.XPath("//span[text()='Close' and contains(@id, 'btnInnerEl')]"));
-            if (buttonClose.Count > 0)
-            {
-                IWebElement abuttonClose = buttonClose.First().FindElement(By.XPath("..")).FindElement(By.XPath("..")).FindElement(By.XPath(".."));
-                string tbuttonClose = abuttonClose.TagName;
-                if (tbuttonClose == "a")
-                {
-                    abuttonClose.Click();
-                }
-                WaitLoading();
-                login();
-            }
-
-            //select submission
-            string xpath;
-            if (String.IsNullOrEmpty(this.submissionId))
-            {
-                xpath = "//div[contains(@class, 'x-grid-cell-inner')]";
-            }
-            else
-            {
-                xpath = "//div[contains(text(),'" + this.submissionId + "') and contains(@class, 'x-grid-cell-inner')]";
-            }
-
-            ReadOnlyCollection<IWebElement> submission = chromeDriver.FindElements(By.XPath(xpath));
-            if (submission.Count == 0)
-            {
-                System.Threading.Thread.Sleep(5000);
-                submission = chromeDriver.FindElements(By.XPath(xpath));
-            }
-
-            if (submission.Count > 0)
-            {
-                submission.First().FindElement(By.XPath("..")).Click();
-                WaitLoading();
-                System.Threading.Thread.Sleep(1000);
-
-                ReadOnlyCollection<IWebElement> buttonpd_job_info_action = chromeDriver.FindElements(By.XPath("//span[text()='Job Info' and contains(@id, 'pd_job_info_action')]"));
-                if (buttonpd_job_info_action.Count > 0)
-                {
-                    logWriter.LogWrite("SubmissionID = " + submission.First().Text);
-                    IWebElement abuttonpd_job_info_action = buttonpd_job_info_action.First().FindElement(By.XPath("..")).FindElement(By.XPath("..")).FindElement(By.XPath(".."));
-                    string tbuttonpd_job_info_action = abuttonpd_job_info_action.TagName;
-                    if (tbuttonpd_job_info_action == "a")
-                    {
-                        abuttonpd_job_info_action.Click();
-                    }
-                    WaitLoading();
-                    System.Threading.Thread.Sleep(5000);
-
-                    // pdSubmissionBudgetJobInfoColumnRadioAccept
-                    ReadOnlyCollection<IWebElement> pdSubmissionBudgetJobInfoColumnRadioAccept = chromeDriver.FindElements(By.XPath("//div[contains(@class, 'x-grid-radio-col')]"));
-                    if (pdSubmissionBudgetJobInfoColumnRadioAccept.Count > 0)
-                    {
-                        pdSubmissionBudgetJobInfoColumnRadioAccept.First().FindElement(By.XPath("..")).FindElement(By.XPath("..")).Click();
-                        WaitLoading();
-                    }
-
-                    //checkbox-inputEl
-                    ReadOnlyCollection<IWebElement> checkboxinputEl = chromeDriver.FindElements(By.XPath("//label[contains(@id, 'checkbox-') and contains(@id, '-boxLabelEl')]"));
-                    if (checkboxinputEl.Count > 0)
-                    {
-                        checkboxinputEl.First().Click();
-                        WaitLoading();
-                    }
-
-                    //buttonSubmit
-                    ReadOnlyCollection<IWebElement> buttonSubmit = chromeDriver.FindElements(By.XPath("//span[text()='Submit' and contains(@id, 'btnInnerEl')]"));
-                    if (buttonSubmit.Count > 0)
-                    {
-                        IWebElement abuttonSubmit = buttonSubmit.First().FindElement(By.XPath("..")).FindElement(By.XPath("..")).FindElement(By.XPath(".."));
-                        string tagname = abuttonSubmit.TagName;
-                        if (tagname == "a")
-                        {
-                            abuttonSubmit.Click();
-                            logWriter.LogWrite("Submit...");
-                        }
-                        WaitLoading();
-                    }
-
-                    try
-                    {
-                        // button -- Close
-                        System.Threading.Thread.Sleep(5000);
-                        ReadOnlyCollection<IWebElement> buttonClose1 = chromeDriver.FindElements(By.XPath("//span[text()='Close' and contains(@id, 'btnInnerEl')]"));
-                        if (buttonClose1.Count > 0)
-                        {
-                            IWebElement abuttonClose1 = buttonClose1.Last().FindElement(By.XPath("..")).FindElement(By.XPath("..")).FindElement(By.XPath(".."));
-                            string tbuttonClose1 = abuttonClose1.TagName;
-                            if (tbuttonClose1 == "a")
-                            {
-                                abuttonClose1.Click();
-                            }
-                            WaitLoading();
-                        }
-                    }
-                    catch {}
-
-                    try
-                    {
-                        // button -- Close
-                        System.Threading.Thread.Sleep(5000);
-                        ReadOnlyCollection<IWebElement> buttonClose2 = chromeDriver.FindElements(By.XPath("//span[text()='Close' and contains(@id, 'btnInnerEl')]"));
-                        if (buttonClose2.Count > 0)
-                        {
-                            IWebElement abuttonClose2 = buttonClose2.Last().FindElement(By.XPath("..")).FindElement(By.XPath("..")).FindElement(By.XPath(".."));
-                            string tbuttonClose2 = abuttonClose2.TagName;
-                            if (tbuttonClose2 == "a")
-                            {
-                                abuttonClose2.Click();
-                            }
-                            WaitLoading();
-                        }
-                    }
-                    catch {}
-                }
-                else
-                {
-                    logWriter.LogWrite("Not show Job Info!");
-                }
-            }
-            else
-            {
-                logWriter.LogWrite("Not submission!");
-            }
-
-            System.Threading.Thread.Sleep(5000);
-            logWriter.LogWrite("Done!");
         }
 
         private void WaitLoading()

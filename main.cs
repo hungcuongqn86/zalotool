@@ -19,9 +19,7 @@ namespace transtrusttool
     {
         public LogWriter logWriter;
         public static main thisForm;
-        const SecureSocketOptions SslOptions = SecureSocketOptions.Auto;
-        public IdleClient idleClient;
-        public Task idleTask;
+        public AutoRun autoRun;
 
         private SamplesConfiguration _configuration;
         public main()
@@ -79,14 +77,8 @@ namespace transtrusttool
         {
             logWriter.LogWrite("btnAuto1_Click...");
             Loading(false);
-            this.idleClient = new IdleClient(
-                this.Configuration.Imap4Server, 993, SslOptions, 
-                this.Configuration.Imap4UserName, 
-                this.Configuration.Imap4Password,
-                this.Configuration.TransperfectEmail,
-                this.Configuration.TransperfectPass
-                );
-            this.idleTask = this.idleClient.RunAsync();
+            autoRun = new AutoRun("zalotool", this.Configuration.Imap4UserName,
+                this.Configuration.Imap4Password);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,7 +94,7 @@ namespace transtrusttool
             try
             {
                 OpenFileDialog openfile1 = new OpenFileDialog();
-                openfile1.Filter = "Excel Files (*.xlsx) |*.xlsx";
+                openfile1.Filter = "Text File (*.txt) |*.txt";
                 openfile1.FilterIndex = 3;
                 openfile1.Multiselect = false;
                 openfile1.InitialDirectory = @"Desktop";
@@ -111,32 +103,6 @@ namespace transtrusttool
                 {
                     string pathName = openfile1.FileName;
                     this.textBox1.Text = pathName;
-
-                    string fileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog1.FileName);
-                    DataTable tbContainer = new DataTable();
-                    string strConn = string.Empty;
-                    string sheetName = fileName;
-
-                    FileInfo file = new FileInfo(pathName);
-                    if (!file.Exists) { throw new Exception("Error, file doesn't exists!"); }
-                    string extension = file.Extension;
-                    switch (extension)
-                    {
-                        case ".xls":
-                            strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + pathName + ";Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'";
-                            break;
-                        case ".xlsx":
-                            strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + pathName + ";Extended Properties='Excel 12.0;HDR=Yes;IMEX=1;'";
-                            break;
-                        default:
-                            strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + pathName + ";Extended Properties='Excel 8.0;HDR=Yes;IMEX=1;'";
-                            break;
-                    }
-                    OleDbConnection cnnxls = new OleDbConnection(strConn);
-                    OleDbDataAdapter oda = new OleDbDataAdapter(string.Format("select * from [{0}$]", sheetName), cnnxls);
-                    oda.Fill(tbContainer);
-
-                    // dtGrid.DataSource = tbContainer;
                 }
             }
             catch (Exception error)
