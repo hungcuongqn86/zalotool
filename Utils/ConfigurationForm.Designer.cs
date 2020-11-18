@@ -1,4 +1,4 @@
-namespace transtrusttool.Utils
+﻿namespace transtrusttool.Utils
 {
     partial class ConfigurationForm
     {
@@ -50,10 +50,10 @@ namespace transtrusttool.Utils
             this.groupBox1.Controls.Add(this._lImap4Username);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(542, 170);
+            this.groupBox1.Size = new System.Drawing.Size(545, 100);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Account 1";
+            this.groupBox1.Text = "Tài khoản";
 
             // 
             // _tbImap4Password
@@ -73,7 +73,7 @@ namespace transtrusttool.Utils
             this._lImap4Password.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this._lImap4Password.Size = new System.Drawing.Size(126, 19);
             this._lImap4Password.TabIndex = 2;
-            this._lImap4Password.Text = "Password :";
+            this._lImap4Password.Text = "Mật khẩu";
             this._lImap4Password.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
             // 
@@ -94,7 +94,7 @@ namespace transtrusttool.Utils
             this._lImap4Username.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this._lImap4Username.Size = new System.Drawing.Size(126, 19);
             this._lImap4Username.TabIndex = 0;
-            this._lImap4Username.Text = "User name :";
+            this._lImap4Username.Text = "Số điện thoại";
             this._lImap4Username.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
             // 
@@ -102,22 +102,22 @@ namespace transtrusttool.Utils
             // 
             this._bCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._bCancel.Location = new System.Drawing.Point(496, 370);
+            this._bCancel.Location = new System.Drawing.Point(475, 120);
             this._bCancel.Name = "_bCancel";
             this._bCancel.Size = new System.Drawing.Size(75, 23);
             this._bCancel.TabIndex = 23;
-            this._bCancel.Text = "Cancel";
+            this._bCancel.Text = "Bỏ qua";
             this._bCancel.UseVisualStyleBackColor = true;
             this._bCancel.Click += new System.EventHandler(this._bCancel_Click);
             // 
             // _bSave
             // 
             this._bSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._bSave.Location = new System.Drawing.Point(415, 370);
+            this._bSave.Location = new System.Drawing.Point(395, 120);
             this._bSave.Name = "_bSave";
             this._bSave.Size = new System.Drawing.Size(75, 23);
             this._bSave.TabIndex = 24;
-            this._bSave.Text = "Save";
+            this._bSave.Text = "Lưu";
             this._bSave.UseVisualStyleBackColor = true;
             this._bSave.Click += new System.EventHandler(this._bSave_Click);
 
@@ -128,7 +128,7 @@ namespace transtrusttool.Utils
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._bCancel;
-            this.ClientSize = new System.Drawing.Size(576, 400);
+            this.ClientSize = new System.Drawing.Size(570, 150);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this._bSave);
             this.Controls.Add(this._bCancel);
@@ -137,7 +137,7 @@ namespace transtrusttool.Utils
             this.Name = "ConfigurationForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Configuration";
+            this.Text = "Cấu hình hệ thống";
             
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
