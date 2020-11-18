@@ -42,18 +42,18 @@
             this.groupBox1.Controls.Add(this.btnAuto1);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(283, 71);
+            this.groupBox1.Size = new System.Drawing.Size(525, 71);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Chọn file dữ liệu và nhấn Run!";
+            this.groupBox1.Text = "Chọn file dữ liệu và nhấn Thực hiện!";
             // 
             // btnAuto1
             // 
-            this.btnAuto1.Location = new System.Drawing.Point(191, 24);
+            this.btnAuto1.Location = new System.Drawing.Point(444, 24);
             this.btnAuto1.Name = "btnAuto1";
             this.btnAuto1.Size = new System.Drawing.Size(65, 26);
             this.btnAuto1.TabIndex = 4;
-            this.btnAuto1.Text = "Run";
+            this.btnAuto1.Text = "Thực hiện";
             this.btnAuto1.UseVisualStyleBackColor = true;
             this.btnAuto1.Click += new System.EventHandler(this.BtnAuto1_Click);
             // 
@@ -78,7 +78,7 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(312, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(549, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 118);
+            this.ClientSize = new System.Drawing.Size(549, 118);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
