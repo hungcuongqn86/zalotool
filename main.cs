@@ -1,5 +1,4 @@
-﻿using MailKit.Security;
-using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium.Chrome;
 using System;
 using System.IO;
 using System.Linq;
