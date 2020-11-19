@@ -115,6 +115,14 @@ namespace transtrusttool
             }
         }
 
+        private void clearWebField(IWebElement element)
+        {
+            while (!element.GetAttribute("value").Equals(""))
+            {
+                element.SendKeys(Keys.Backspace);
+            }
+        }
+
         public bool RunAuto(string phone, string content)
         {
             bool res = false;
@@ -122,32 +130,45 @@ namespace transtrusttool
             ReadOnlyCollection<IWebElement> eSearchInput = chromeDriver.FindElements(By.Id("contact-search-input"));
             if (eSearchInput.Count > 0)
             {
-                eSearchInput.First().Clear(); ;
+                // fa-textbox-icon-clear
+                ReadOnlyCollection<IWebElement> eClearBtn = chromeDriver.FindElements(By.XPath("//div[contains(@class, 'global-search-no-result')]"));
+                if (eClearBtn.Count > 0)
+                {
+                    eClearBtn.First().Click();
+                    System.Threading.Thread.Sleep(1000);
+                }
+
+                // eSearchInput.First().Click();
+                clearWebField(eSearchInput.First());
                 eSearchInput.First().SendKeys(phone);
                 System.Threading.Thread.Sleep(2000);
-
-                //searchResultList
-                ReadOnlyCollection<IWebElement> searchResultList = chromeDriver.FindElements(By.Id("searchResultList"));
-                IWebElement firtItem = searchResultList.First().FindElement(By.XPath("//div[contains(@class, 'list-friend-conctact') and contains(@class, 'item')]"));
-                if (firtItem != null)
+                try
                 {
-                    firtItem.Click();
-                    System.Threading.Thread.Sleep(1000);
-                    IWebElement chatbox = chromeDriver.FindElement(By.Id("input_line_0"));
-                    if (chatbox != null)
+                    ReadOnlyCollection<IWebElement> searchResultList = chromeDriver.FindElements(By.Id("searchResultList"));
+                    IWebElement firtItem = searchResultList.First().FindElement(By.XPath("//div[contains(@class, 'list-friend-conctact') and contains(@class, 'item')]"));
+                    if (firtItem != null)
                     {
-                        chatbox.Click();
-                        chatbox.SendKeys(content);
+                        firtItem.Click();
                         System.Threading.Thread.Sleep(1000);
-                        IWebElement sendBtn = chromeDriver.FindElement(By.Id("sendBtn"));
-                        if (sendBtn != null)
+                        IWebElement chatbox = chromeDriver.FindElement(By.Id("input_line_0"));
+                        if (chatbox != null)
                         {
-                            sendBtn.Click();
-                            res = true;
+                            chatbox.Click();
+                            chatbox.SendKeys(content);
+                            System.Threading.Thread.Sleep(1000);
+                            IWebElement sendBtn = chromeDriver.FindElement(By.Id("sendBtn"));
+                            if (sendBtn != null)
+                            {
+                                sendBtn.Click();
+                                res = true;
+                            }
                         }
                     }
                 }
-                
+                catch
+                {
+                    res = false;
+                }
             }
             return res;
         }
