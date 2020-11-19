@@ -93,9 +93,27 @@ namespace transtrusttool
                 this.Configuration.Imap4Password);
             if (autoRun.loginStatus)
             {
-                autoRun.RunAuto("0387495984", this.textBox2.Text);
+                string phoneNumber = "0387495984";
+                bool check = autoRun.RunAuto(phoneNumber, this.textBox2.Text);
+                string[] arr = new string[4];
+                ListViewItem itm;
+                arr[0] = phoneNumber;
+                if (check)
+                {
+                    arr[1] = "Thành công";
+                }
+                else
+                {
+                    arr[1] = "Thất bại";
+                }
+                
+                itm = new ListViewItem(arr);
+                this.listView1.Items.Add(itm);
             }
             Loading(true);
+            logWriter.LogWrite("End...");
+            MessageBox.Show("Hoàn thành gửi tin!", "Thông báo!", MessageBoxButtons.OK);
+            return;
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)

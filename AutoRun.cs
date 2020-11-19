@@ -145,7 +145,6 @@ namespace transtrusttool
                     IWebElement chatbox = chromeDriver.FindElement(By.Id("input_line_0"));
                     if (chatbox != null)
                     {
-                        // chromeDriver.ExecuteScript("arguments[0].innerText = '" + content + "'", chatbox);
                         chatbox.SendKeys(content);
                         System.Threading.Thread.Sleep(1000);
                         IWebElement sendBtn = chromeDriver.FindElement(By.Id("sendBtn"));
