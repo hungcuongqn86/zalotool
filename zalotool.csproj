@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{82E7FEB6-4478-4E42-8D85-9AA9FB9FB6E6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>transtrusttool</RootNamespace>
-    <AssemblyName>transtrusttool</AssemblyName>
+    <RootNamespace>zalotool</RootNamespace>
+    <AssemblyName>zalotool</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -85,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Utils\ConfigurationForm.resx" />
     <None Include="packages.config" />

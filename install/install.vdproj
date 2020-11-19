@@ -15,20 +15,14 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0C2E929E3A1843398AFA0A086063462D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_6BAE5415D62AE25B73AD616A6CA8A060"
-        "OwnerKey" = "8:_B66E362A2FC74D2FB3FC866C4E198B15"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B66E362A2FC74D2FB3FC866C4E198B15"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CA2F1E0C3D9F4413A53AAB1A5963DB91"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0C2E929E3A1843398AFA0A086063462D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -40,19 +34,31 @@
         "Entry"
         {
         "MsmKey" = "8:_DF86C83C66F9519611E04B310C5F330E"
-        "OwnerKey" = "8:_B66E362A2FC74D2FB3FC866C4E198B15"
+        "OwnerKey" = "8:_0C2E929E3A1843398AFA0A086063462D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_EF4790754239F420CEA0E22A23EFC079"
-        "OwnerKey" = "8:_B66E362A2FC74D2FB3FC866C4E198B15"
+        "OwnerKey" = "8:_0C2E929E3A1843398AFA0A086063462D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F515491AB66D47A6BDD4CCBBCCBD9FD0"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B66E362A2FC74D2FB3FC866C4E198B15"
+        "OwnerKey" = "8:_DF86C83C66F9519611E04B310C5F330E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0C2E929E3A1843398AFA0A086063462D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -65,12 +71,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_EF4790754239F420CEA0E22A23EFC079"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DF86C83C66F9519611E04B310C5F330E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -199,26 +199,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA2F1E0C3D9F4413A53AAB1A5963DB91"
-            {
-            "SourcePath" = "8:..\\bin\\Debug\\chromedriver.exe"
-            "TargetName" = "8:chromedriver.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_43B6A7C542BA422F87B19BFD8CEEA856"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DBB4F0AE3D8E49AB8F844D0A595F3A11"
             {
             "SourcePath" = "8:..\\ico\\Cjdowner-Cryptocurrency-ICON.ico"
@@ -301,6 +281,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F515491AB66D47A6BDD4CCBBCCBD9FD0"
+            {
+            "SourcePath" = "8:..\\bin\\Debug\\chromedriver.exe"
+            "TargetName" = "8:chromedriver.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_43B6A7C542BA422F87B19BFD8CEEA856"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -356,22 +356,22 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Transtrust"
+        "ProductName" = "8:Zalotool"
         "ProductCode" = "8:{74228DBB-BEC6-4E81-9BAC-0C5CEB3697FC}"
-        "PackageCode" = "8:{FC7814BA-C79C-4649-AD19-452D3567F2F4}"
+        "PackageCode" = "8:{DAF4D9C6-06DF-4181-B7B0-A2D0C107AEF3}"
         "UpgradeCode" = "8:{F4523E88-70C5-40D6-8834-FE3BDF83F074}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:transtrust"
+        "Manufacturer" = "8:hungcuong"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:install"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:transtrust"
+        "ARPCONTACT" = "8:hungcuong"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -478,30 +478,30 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0E6AE6E5DB8049A692CA024D328B2ADD"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_37428BBA28B14AA1BB759C25351E87E2"
             {
-            "Name" = "8:Shortcut to transtrusttool"
+            "Name" = "8:Shortcut to Zalotool"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_B66E362A2FC74D2FB3FC866C4E198B15"
-            "Folder" = "8:_5EB47D3042E749DF9FB6F08BE45E3F92"
+            "Target" = "8:_0C2E929E3A1843398AFA0A086063462D"
+            "Folder" = "8:_76D0D1A0BF1843C4AFE056697A90BF54"
             "WorkingFolder" = "8:_43B6A7C542BA422F87B19BFD8CEEA856"
             "Icon" = "8:_DBB4F0AE3D8E49AB8F844D0A595F3A11"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5FDDF9D9B2D34A4185C9341E817F75CE"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_6BDCA1F33938429593A9510F5D0692C8"
             {
-            "Name" = "8:Shortcut to transtrusttool"
+            "Name" = "8:Shortcut to Zalotool"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_B66E362A2FC74D2FB3FC866C4E198B15"
-            "Folder" = "8:_76D0D1A0BF1843C4AFE056697A90BF54"
+            "Target" = "8:_0C2E929E3A1843398AFA0A086063462D"
+            "Folder" = "8:_5EB47D3042E749DF9FB6F08BE45E3F92"
             "WorkingFolder" = "8:_43B6A7C542BA422F87B19BFD8CEEA856"
             "Icon" = "8:_DBB4F0AE3D8E49AB8F844D0A595F3A11"
             "Feature" = "8:"
@@ -905,9 +905,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B66E362A2FC74D2FB3FC866C4E198B15"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0C2E929E3A1843398AFA0A086063462D"
             {
-            "SourcePath" = "8:..\\obj\\Debug\\transtrusttool.exe"
+            "SourcePath" = "8:..\\obj\\Debug\\zalotool.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_43B6A7C542BA422F87B19BFD8CEEA856"

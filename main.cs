@@ -88,8 +88,11 @@ namespace transtrusttool
             }
             logWriter.LogWrite("btnAuto1_Click...");
             Loading(false);
-            autoRun = new AutoRun("zalotool", this.Configuration.Imap4UserName,
-                this.Configuration.Imap4Password);
+            if (autoRun != null)
+            {
+                autoRun.Dispose();
+            }
+            autoRun = new AutoRun("zalotool");
             if (autoRun.loginStatus)
             {
                 using (StreamReader reader = File.OpenText(this.textBox1.Text))
@@ -123,7 +126,7 @@ namespace transtrusttool
             }
             else
             {
-                autoRun.Dispose();
+                // autoRun.Dispose();
                 Loading(true);
                 MessageBox.Show("Đăng nhập không thành công! hãy đăng nhập zalo trên trình duyệt chrome và thực hiện lại!", "Login...", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -22,11 +22,8 @@ namespace transtrusttool
         public string email;
         public string pass;
         public bool loginStatus = false;
-        public AutoRun(string profileName, string email, string pass)
+        public AutoRun(string profileName)
         {
-            this.email = email;
-            this.pass = pass;
-
             logWriter = new LogWriter("AutoRun ...");
             string profilePath = "C:/profile";
             try
@@ -58,15 +55,9 @@ namespace transtrusttool
                 WaitLoading();
                 login();
             }
-            catch
+            catch (Exception error)
             {
-
-                /*chromeDriver = new ChromeDriver(options)
-                {
-                    Url = webUrl
-                };
-                chromeDriver.Navigate();
-                WaitLoading();*/
+                // MessageBox.Show(error.Message.ToString());
             }
         }
 
