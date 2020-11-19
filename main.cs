@@ -115,12 +115,19 @@ namespace transtrusttool
                         this.listView1.Items.Add(itm);
                     }
                 }
+                autoRun.Dispose();
+                Loading(true);
+                logWriter.LogWrite("End...");
+                MessageBox.Show("Hoàn thành gửi tin!", "Thông báo!", MessageBoxButtons.OK);
+                return;
             }
-            autoRun.Dispose();
-            Loading(true);
+            else
+            {
+                autoRun.Dispose();
+                Loading(true);
+                MessageBox.Show("Đăng nhập không thành công! hãy đăng nhập zalo trên trình duyệt chrome và thực hiện lại!", "Login...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             logWriter.LogWrite("End...");
-            MessageBox.Show("Hoàn thành gửi tin!", "Thông báo!", MessageBoxButtons.OK);
-            return;
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)

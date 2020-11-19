@@ -48,19 +48,32 @@ namespace transtrusttool
             options.AddArgument("disable-infobars");
             options.AddArgument("--disable-extensions");
             options.AddArgument("--start-maximized");
-            chromeDriver = new ChromeDriver(options)
+            try
             {
-                Url = webUrl
-            };
-            chromeDriver.Navigate();
-            WaitLoading();
+                chromeDriver = new ChromeDriver(options)
+                {
+                    Url = webUrl
+                };
+                chromeDriver.Navigate();
+                WaitLoading();
+                login();
+            }
+            catch
+            {
 
-            login();
+                /*chromeDriver = new ChromeDriver(options)
+                {
+                    Url = webUrl
+                };
+                chromeDriver.Navigate();
+                WaitLoading();*/
+            }
         }
 
         private void login()
         {
             System.Threading.Thread.Sleep(3000);
+            /*
             string url = chromeDriver.Url;
             if (url.Contains("id.zalo.me/account"))
             {
@@ -88,27 +101,14 @@ namespace transtrusttool
                 {
                     SubmitLogin.First().Click();
                     WaitLoading();
-                    System.Threading.Thread.Sleep(2000);
-                    ePasswords = chromeDriver.FindElements(By.Id("Password"));
-                }
-
-
-                // SubmitLogin2
-                System.Threading.Thread.Sleep(2000);
-                ReadOnlyCollection<IWebElement> SubmitLogin2 = chromeDriver.FindElements(By.XPath("//a[contains(@class, 'btn--m') and contains(@class, 'first')]"));
-                if (SubmitLogin2.Count > 0)
-                {
-                    SubmitLogin2.First().Click();
-                    WaitLoading();
-                    System.Threading.Thread.Sleep(2000);
                 }
             }
+            */
 
-            url = chromeDriver.Url;
+            string url = chromeDriver.Url;
             if (url.Contains("id.zalo.me/account"))
             {
                 logWriter.LogWrite("Login fall!");
-                MessageBox.Show("Đăng nhập không thành công! hãy đăng nhập zalo trên trình duyệt chrome và thực hiện lại!", "Login...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
