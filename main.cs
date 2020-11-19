@@ -99,9 +99,10 @@ namespace transtrusttool
                 {
                     string line = "";
                     string content = this.textBox2.Text;
+                    string photo = this.textBox3.Text;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        bool check = autoRun.RunAuto(line, content);
+                        bool check = autoRun.RunAuto(line, content, photo);
                         string[] arr = new string[4];
                         ListViewItem itm;
                         arr[0] = line;
@@ -155,6 +156,29 @@ namespace transtrusttool
                 {
                     string pathName = openfile1.FileName;
                     this.textBox1.Text = pathName;
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message.ToString());
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog openfile1 = new OpenFileDialog();
+                // .png, .jpg, .jpeg, .gif
+                openfile1.Filter = "Image files (*.jpg, *.jpeg, *.gif, *.png) | *.jpg; *.jpeg; *.gif; *.png";
+                openfile1.FilterIndex = 3;
+                openfile1.Multiselect = false;
+                openfile1.InitialDirectory = @"Desktop";
+
+                if (openfile1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    string pathName = openfile1.FileName;
+                    this.textBox3.Text = pathName;
                 }
             }
             catch (Exception error)

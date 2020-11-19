@@ -123,7 +123,7 @@ namespace transtrusttool
             }
         }
 
-        public bool RunAuto(string phone, string content)
+        public bool RunAuto(string phone, string content, string photo)
         {
             bool res = false;
             // SendKeys phone
@@ -160,17 +160,46 @@ namespace transtrusttool
                             if (sendBtn != null)
                             {
                                 sendBtn.Click();
-                                res = true;
                             }
+
+                            // photo
+                            // send-photo-btn
+                            if (photo.Trim().Length > 0)
+                            {
+                                IWebElement sendPhotoInput = chromeDriver.FindElement(By.Id("file"));
+                                if (sendPhotoInput != null)
+                                {
+                                    Unhide(chromeDriver, sendPhotoInput);
+                                    sendPhotoInput.Click();
+                                    sendPhotoInput.SendKeys(photo);
+                                    System.Threading.Thread.Sleep(5000);
+                                }
+                            }
+
+                            // res
+                            res = true;
                         }
                     }
                 }
-                catch
+                catch (Exception error)
                 {
                     res = false;
+                    MessageBox.Show(error.Message.ToString());
                 }
             }
             return res;
+        }
+
+        private void Unhide(IWebDriver driver, IWebElement element)
+        {
+            String script = "arguments[0].style.opacity=1;arguments[0].style.display='block';"
+              + "arguments[0].style['transform']='translate(0px, 0px) scale(1)';"
+              + "arguments[0].style['MozTransform']='translate(0px, 0px) scale(1)';"
+              + "arguments[0].style['WebkitTransform']='translate(0px, 0px) scale(1)';"
+              + "arguments[0].style['msTransform']='translate(0px, 0px) scale(1)';"
+              + "arguments[0].style['OTransform']='translate(0px, 0px) scale(1)';"
+              + "return true;";
+            ((IJavaScriptExecutor)driver).ExecuteScript(script, element);
         }
 
         private void WaitLoading()
