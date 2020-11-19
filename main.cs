@@ -76,6 +76,17 @@ namespace transtrusttool
 
         private void BtnAuto1_Click(object sender, EventArgs e)
         {
+            if (this.textBox1.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải chọn file danh sách số điện thoại!", "Thông báo!", MessageBoxButtons.OK);
+                return;
+            }
+
+            if (this.textBox2.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Bạn phải nhập nội dung tin nhắn!", "Thông báo!", MessageBoxButtons.OK);
+                return;
+            }
             logWriter.LogWrite("btnAuto1_Click...");
             Loading(false);
             autoRun = new AutoRun("zalotool", this.Configuration.Imap4UserName,
@@ -84,6 +95,7 @@ namespace transtrusttool
             {
                 autoRun.RunAuto("0387495984", this.textBox2.Text);
             }
+            Loading(true);
         }
 
         private void ExitToolStripMenuItem_Click(object sender, EventArgs e)

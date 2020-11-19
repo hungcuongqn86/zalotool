@@ -108,7 +108,7 @@ namespace transtrusttool
             if (url.Contains("id.zalo.me/account"))
             {
                 logWriter.LogWrite("Login fall!");
-                MessageBox.Show("Đăng nhập không thành công! hãy đăng nhập zalo trên chrome trên trình duyệt và thực hiện lại!", "Login...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đăng nhập không thành công! hãy đăng nhập zalo trên trình duyệt chrome và thực hiện lại!", "Login...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

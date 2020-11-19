@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAuto1 = new System.Windows.Forms.Button();
@@ -36,7 +37,6 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -54,6 +54,14 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chọn file dữ liệu, nhập nội dung và nhấn Thực hiện!";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(15, 54);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(495, 109);
+            this.textBox2.TabIndex = 6;
             // 
             // textBox1
             // 
@@ -112,14 +120,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(15, 54);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(495, 109);
-            this.textBox2.TabIndex = 6;
-            // 
             // listView1
             // 
             this.listView1.HideSelection = false;
@@ -128,6 +128,7 @@
             this.listView1.Size = new System.Drawing.Size(525, 383);
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // main
             // 
@@ -147,6 +148,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+            this.listView1.Columns.Add("Số điện thoại", 400);
+            this.listView1.Columns.Add("Trạng thái", 150);
         }
 
         #endregion
