@@ -138,7 +138,6 @@ namespace transtrusttool
                     System.Threading.Thread.Sleep(1000);
                 }
 
-                // eSearchInput.First().Click();
                 clearWebField(eSearchInput.First());
                 eSearchInput.First().SendKeys(phone);
                 System.Threading.Thread.Sleep(2000);
@@ -170,7 +169,7 @@ namespace transtrusttool
                                 if (sendPhotoInput != null)
                                 {
                                     Unhide(chromeDriver, sendPhotoInput);
-                                    sendPhotoInput.Click();
+                                    // sendPhotoInput.Click();
                                     sendPhotoInput.SendKeys(photo);
                                     System.Threading.Thread.Sleep(5000);
                                 }
@@ -184,7 +183,7 @@ namespace transtrusttool
                 catch (Exception error)
                 {
                     res = false;
-                    MessageBox.Show(error.Message.ToString());
+                    // MessageBox.Show(error.Message.ToString());
                 }
             }
             return res;
@@ -192,14 +191,21 @@ namespace transtrusttool
 
         private void Unhide(IWebDriver driver, IWebElement element)
         {
-            String script = "arguments[0].style.opacity=1;arguments[0].style.display='block';"
-              + "arguments[0].style['transform']='translate(0px, 0px) scale(1)';"
-              + "arguments[0].style['MozTransform']='translate(0px, 0px) scale(1)';"
-              + "arguments[0].style['WebkitTransform']='translate(0px, 0px) scale(1)';"
-              + "arguments[0].style['msTransform']='translate(0px, 0px) scale(1)';"
-              + "arguments[0].style['OTransform']='translate(0px, 0px) scale(1)';"
-              + "return true;";
-            ((IJavaScriptExecutor)driver).ExecuteScript(script, element);
+            try
+            {
+                String script = "arguments[0].style.opacity=1;"
+                  + "arguments[0].style['transform']='translate(0px, 0px) scale(1)';"
+                  + "arguments[0].style['MozTransform']='translate(0px, 0px) scale(1)';"
+                  + "arguments[0].style['WebkitTransform']='translate(0px, 0px) scale(1)';"
+                  + "arguments[0].style['msTransform']='translate(0px, 0px) scale(1)';"
+                  + "arguments[0].style['OTransform']='translate(0px, 0px) scale(1)';"
+                  + "return true;";
+                ((IJavaScriptExecutor)driver).ExecuteScript(script, element);
+            }
+            catch (Exception error)
+            {
+                // MessageBox.Show(error.Message.ToString());
+            }
         }
 
         private void WaitLoading()
