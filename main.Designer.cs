@@ -151,6 +151,8 @@
             this.listView1.TabIndex = 5;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.Columns.Add("Số điện thoại", 400);
+            this.listView1.Columns.Add("Trạng thái", 150);
             // 
             // main
             // 
