@@ -24,8 +24,8 @@ namespace transtrusttool.Utils
             if (_config != null)
             {
                 // Imap4
-                _tbImap4Username.Text = _config.Imap4UserName;
-                _tbImap4Password.Text = _config.Imap4Password;
+                _tbDelay2Mess1Acc.Value = _config.Delay2Mess1Acc;
+                _tbDelay2Mess2Acc.Value = _config.Delay2Mess2Acc;
             }
         }
 
@@ -34,8 +34,8 @@ namespace transtrusttool.Utils
             try
             {
                 // Imap4
-                _config.Imap4UserName = _tbImap4Username.Text;
-                _config.Imap4Password = _tbImap4Password.Text;
+                _config.Delay2Mess1Acc = Convert.ToInt32(_tbDelay2Mess1Acc.Value);
+                _config.Delay2Mess2Acc = Convert.ToInt32(_tbDelay2Mess2Acc.Value);
                 _config.Save();
             }
 

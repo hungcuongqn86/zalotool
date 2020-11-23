@@ -13,7 +13,8 @@ namespace transtrusttool.Utils
     {
         #region Fields
 
-        private string _imap4Server, _imap4UserName, _imap4Password, _transperfectEmail, _transperfectPass, _imap4Server2, _imap4UserName2, _imap4Password2, _transperfectEmail2, _transperfectPass2;
+        private int _delay2Mess1Acc, _delay2Mess2Acc, _pauseAt, _pauseTime;
+        private bool _makeFriendWithStrangers, _logWhenSuccessful;
 
         private const string _FILE_NAME_ = "Config.xml";
 
@@ -37,143 +38,87 @@ namespace transtrusttool.Utils
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("imap4server", DataType = "string")]
-        public string Imap4Server
+        [System.Xml.Serialization.XmlElementAttribute("delay2Mess1Acc", DataType = "int")]
+        public int Delay2Mess1Acc
         {
             get
             {
-                return _imap4Server;
+                return _delay2Mess1Acc;
             }
 
             set
             {
-                _imap4Server = value;
+                _delay2Mess1Acc = value;
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("imap4username", DataType = "string")]
-        public string Imap4UserName
+        [System.Xml.Serialization.XmlElementAttribute("delay2Mess2Acc", DataType = "int")]
+        public int Delay2Mess2Acc
         {
             get
             {
-                return _imap4UserName;
+                return _delay2Mess2Acc;
             }
 
             set
             {
-                _imap4UserName = value;
+                _delay2Mess2Acc = value;
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("imap4password", DataType = "string")]
-        public string Imap4Password
+        [System.Xml.Serialization.XmlElementAttribute("pauseAt", DataType = "int")]
+        public int PauseAt
         {
             get
             {
-                return _imap4Password;
+                return _pauseAt;
             }
 
             set
             {
-                _imap4Password = value;
+                _pauseAt = value;
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("transperfectemail", DataType = "string")]
-        public string TransperfectEmail
+        [System.Xml.Serialization.XmlElementAttribute("pauseTime", DataType = "int")]
+        public int PauseTime
         {
             get
             {
-                return _transperfectEmail;
+                return _pauseTime;
             }
 
             set
             {
-                _transperfectEmail = value;
+                _pauseTime = value;
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("transperfectpass", DataType = "string")]
-        public string TransperfectPass
+        [System.Xml.Serialization.XmlElementAttribute("makeFriendWithStrangers", DataType = "boolean")]
+        public bool MakeFriendWithStrangers
         {
             get
             {
-                return _transperfectPass;
+                return _makeFriendWithStrangers;
             }
 
             set
             {
-                _transperfectPass = value;
+                _makeFriendWithStrangers = value;
             }
         }
 
-        [System.Xml.Serialization.XmlElementAttribute("imap4server2", DataType = "string")]
-        public string Imap4Server2
+        [System.Xml.Serialization.XmlElementAttribute("logWhenSuccessful", DataType = "boolean")]
+        public bool LogWhenSuccessful
         {
             get
             {
-                return _imap4Server2;
+                return _logWhenSuccessful;
             }
 
             set
             {
-                _imap4Server2 = value;
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute("imap4username2", DataType = "string")]
-        public string Imap4UserName2
-        {
-            get
-            {
-                return _imap4UserName2;
-            }
-
-            set
-            {
-                _imap4UserName2 = value;
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute("imap4password2", DataType = "string")]
-        public string Imap4Password2
-        {
-            get
-            {
-                return _imap4Password2;
-            }
-
-            set
-            {
-                _imap4Password2 = value;
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute("transperfectemail2", DataType = "string")]
-        public string TransperfectEmail2
-        {
-            get
-            {
-                return _transperfectEmail2;
-            }
-
-            set
-            {
-                _transperfectEmail2 = value;
-            }
-        }
-
-        [System.Xml.Serialization.XmlElementAttribute("transperfectpass2", DataType = "string")]
-        public string TransperfectPass2
-        {
-            get
-            {
-                return _transperfectPass2;
-            }
-
-            set
-            {
-                _transperfectPass2 = value;
+                _logWhenSuccessful = value;
             }
         }
         #endregion
@@ -182,17 +127,12 @@ namespace transtrusttool.Utils
 
         public void SetDefaultValue()
         {
-            _imap4Server = "mail.example.com";
-            _imap4UserName = "user1@example.com";
-            _imap4Password = "yourpassword";
-            _transperfectEmail = "user1@example.com";
-            _transperfectPass = "yourpassword";
-
-            _imap4Server2 = "mail.example.com";
-            _imap4UserName2 = "user1@example.com";
-            _imap4Password2 = "yourpassword";
-            _transperfectEmail2 = "user1@example.com";
-            _transperfectPass2 = "yourpassword";
+            _delay2Mess1Acc = 3;
+            _delay2Mess2Acc = 8;
+            _pauseAt = 20;
+            _pauseTime = 180;
+            _makeFriendWithStrangers = false;
+            _logWhenSuccessful = false;
         }
 
         public void Save()

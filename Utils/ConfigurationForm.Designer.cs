@@ -29,14 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this._tbImap4Password = new System.Windows.Forms.TextBox();
-            this._lImap4Password = new System.Windows.Forms.Label();
-            this._tbImap4Username = new System.Windows.Forms.TextBox();
-            this._lImap4Username = new System.Windows.Forms.Label();
+            this._tbDelay2Mess1Acc = new System.Windows.Forms.NumericUpDown();
+            this._lDelay2Mess1Acc = new System.Windows.Forms.Label();
+            this._tbDelay2Mess2Acc = new System.Windows.Forms.NumericUpDown();
+            this._lDelay2Mess2Acc = new System.Windows.Forms.Label();
+            this._tbPauseAt = new System.Windows.Forms.NumericUpDown();
+            this._lPauseAt = new System.Windows.Forms.Label();
+            this._tbPauseTime = new System.Windows.Forms.NumericUpDown();
+            this._lPauseTime = new System.Windows.Forms.Label();
+
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this._tbMakeFriendWithStrangers = new System.Windows.Forms.CheckBox();
+            this._lMakeFriendWithStrangers = new System.Windows.Forms.Label();
+            this._tbLogWhenSuccessful = new System.Windows.Forms.CheckBox();
+            this._lLogWhenSuccessful = new System.Windows.Forms.Label();
 
             this._bCancel = new System.Windows.Forms.Button();
             this._bSave = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             
             // 
@@ -44,58 +55,104 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this._tbImap4Password);
-            this.groupBox1.Controls.Add(this._lImap4Password);
-            this.groupBox1.Controls.Add(this._tbImap4Username);
-            this.groupBox1.Controls.Add(this._lImap4Username);
+            this.groupBox1.Controls.Add(this._tbDelay2Mess1Acc);
+            this.groupBox1.Controls.Add(this._lDelay2Mess1Acc);
+            this.groupBox1.Controls.Add(this._tbDelay2Mess2Acc);
+            this.groupBox1.Controls.Add(this._lDelay2Mess2Acc);
+            this.groupBox1.Controls.Add(this._tbPauseAt);
+            this.groupBox1.Controls.Add(this._lPauseAt);
+            this.groupBox1.Controls.Add(this._tbPauseTime);
+            this.groupBox1.Controls.Add(this._lPauseTime);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(545, 100);
+            this.groupBox1.Size = new System.Drawing.Size(355, 150);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tài khoản";
+            this.groupBox1.Text = "Cấu hình giãn cách khi gửi tin";
 
             // 
-            // _tbImap4Password
+            // _lDelay2Mess1Acc
             // 
-            this._tbImap4Password.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this._lDelay2Mess1Acc.Location = new System.Drawing.Point(9, 25);
+            this._lDelay2Mess1Acc.Name = "_lDelay2Mess1Acc";
+            this._lDelay2Mess1Acc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this._lDelay2Mess1Acc.Size = new System.Drawing.Size(226, 20);
+            this._lDelay2Mess1Acc.TabIndex = 0;
+            this._lDelay2Mess1Acc.Text = "Hai tin nhắn cách nhau bn giây";
+            this._lDelay2Mess1Acc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+            // 
+            // _tbDelay2Mess1Acc
+            // 
+            this._tbDelay2Mess1Acc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this._tbImap4Password.Location = new System.Drawing.Point(142, 45);
-            this._tbImap4Password.Name = "_tbImap4Password";
-            this._tbImap4Password.Size = new System.Drawing.Size(397, 20);
-            this._tbImap4Password.TabIndex = 3;
+            this._tbDelay2Mess1Acc.Location = new System.Drawing.Point(242, 25);
+            this._tbDelay2Mess1Acc.Name = "_tbDelay2Mess1Acc";
+            this._tbDelay2Mess1Acc.Size = new System.Drawing.Size(97, 20);
+            this._tbDelay2Mess1Acc.TabIndex = 1;
 
             // 
-            // _lImap4Password
+            // _lDelay2Mess2Acc
             // 
-            this._lImap4Password.Location = new System.Drawing.Point(9, 45);
-            this._lImap4Password.Name = "_lImap4Password";
-            this._lImap4Password.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this._lImap4Password.Size = new System.Drawing.Size(126, 19);
-            this._lImap4Password.TabIndex = 2;
-            this._lImap4Password.Text = "Mật khẩu";
-            this._lImap4Password.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._lDelay2Mess2Acc.Location = new System.Drawing.Point(9, 55);
+            this._lDelay2Mess2Acc.Name = "_lDelay2Mess2Acc";
+            this._lDelay2Mess2Acc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this._lDelay2Mess2Acc.Size = new System.Drawing.Size(226, 20);
+            this._lDelay2Mess2Acc.TabIndex = 2;
+            this._lDelay2Mess2Acc.Text = "Chuyển số kế tiếp thì ngưng bn giây";
+            this._lDelay2Mess2Acc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
             // 
-            // _tbImap4Username
+            // _tbDelay2Mess2Acc
             // 
-            this._tbImap4Username.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this._tbDelay2Mess2Acc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this._tbImap4Username.Location = new System.Drawing.Point(142, 19);
-            this._tbImap4Username.Name = "_tbImap4Username";
-            this._tbImap4Username.Size = new System.Drawing.Size(397, 20);
-            this._tbImap4Username.TabIndex = 1;
+            this._tbDelay2Mess2Acc.Location = new System.Drawing.Point(242, 55);
+            this._tbDelay2Mess2Acc.Name = "_tbDelay2Mess2Acc";
+            this._tbDelay2Mess2Acc.Size = new System.Drawing.Size(97, 20);
+            this._tbDelay2Mess2Acc.TabIndex = 3;
 
             // 
-            // _lImap4Username
+            // _lPauseAt
             // 
-            this._lImap4Username.Location = new System.Drawing.Point(9, 19);
-            this._lImap4Username.Name = "_lImap4Username";
-            this._lImap4Username.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this._lImap4Username.Size = new System.Drawing.Size(126, 19);
-            this._lImap4Username.TabIndex = 0;
-            this._lImap4Username.Text = "Số điện thoại";
-            this._lImap4Username.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this._lPauseAt.Location = new System.Drawing.Point(9, 85);
+            this._lPauseAt.Name = "_lPauseAt";
+            this._lPauseAt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this._lPauseAt.Size = new System.Drawing.Size(226, 19);
+            this._lPauseAt.TabIndex = 4;
+            this._lPauseAt.Text = "Gửi cho bao nhiêu số thì ngắt quãng";
+            this._lPauseAt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+            // 
+            // _tbPauseAt
+            // 
+            this._tbPauseAt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this._tbPauseAt.Location = new System.Drawing.Point(242, 85);
+            this._tbPauseAt.Name = "_tbPauseAt";
+            this._tbPauseAt.Size = new System.Drawing.Size(97, 20);
+            this._tbPauseAt.TabIndex = 5;
+
+            // 
+            // _lPauseTime
+            // 
+            this._lPauseTime.Location = new System.Drawing.Point(9, 115);
+            this._lPauseTime.Name = "_lPauseTime";
+            this._lPauseTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this._lPauseTime.Size = new System.Drawing.Size(226, 19);
+            this._lPauseTime.TabIndex = 6;
+            this._lPauseTime.Text = "Ngắt quãng bn giây";
+            this._lPauseTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+            // 
+            // _tbPauseTime
+            // 
+            this._tbPauseTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this._tbPauseTime.Location = new System.Drawing.Point(242, 115);
+            this._tbPauseTime.Name = "_tbPauseTime";
+            this._tbPauseTime.Size = new System.Drawing.Size(97, 20);
+            this._tbPauseTime.TabIndex = 7;
 
             // 
             // _bCancel
@@ -128,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._bCancel;
-            this.ClientSize = new System.Drawing.Size(570, 150);
+            this.ClientSize = new System.Drawing.Size(365, 300);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this._bSave);
             this.Controls.Add(this._bCancel);
@@ -149,10 +206,20 @@
 
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox _tbImap4Password;
-        private System.Windows.Forms.Label _lImap4Password;
-        private System.Windows.Forms.TextBox _tbImap4Username;
-        private System.Windows.Forms.Label _lImap4Username;
+        private System.Windows.Forms.NumericUpDown _tbDelay2Mess1Acc;
+        private System.Windows.Forms.Label _lDelay2Mess1Acc;
+        private System.Windows.Forms.NumericUpDown _tbDelay2Mess2Acc;
+        private System.Windows.Forms.Label _lDelay2Mess2Acc;
+        private System.Windows.Forms.NumericUpDown _tbPauseAt;
+        private System.Windows.Forms.Label _lPauseAt;
+        private System.Windows.Forms.NumericUpDown _tbPauseTime;
+        private System.Windows.Forms.Label _lPauseTime;
+
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox _tbMakeFriendWithStrangers;
+        private System.Windows.Forms.Label _lMakeFriendWithStrangers;
+        private System.Windows.Forms.CheckBox _tbLogWhenSuccessful;
+        private System.Windows.Forms.Label _lLogWhenSuccessful;
 
         private System.Windows.Forms.Button _bCancel;
         private System.Windows.Forms.Button _bSave;
