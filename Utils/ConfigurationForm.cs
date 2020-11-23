@@ -23,9 +23,12 @@ namespace transtrusttool.Utils
         {
             if (_config != null)
             {
-                // Imap4
                 _tbDelay2Mess1Acc.Value = _config.Delay2Mess1Acc;
                 _tbDelay2Mess2Acc.Value = _config.Delay2Mess2Acc;
+                _tbPauseAt.Value = _config.PauseAt;
+                _tbPauseTime.Value = _config.PauseTime;
+                _tbMakeFriendWithStrangers.Checked = _config.MakeFriendWithStrangers;
+                _tbLogWhenSuccessful.Checked = _config.LogWhenSuccessful;
             }
         }
 
@@ -33,9 +36,13 @@ namespace transtrusttool.Utils
         {
             try
             {
-                // Imap4
                 _config.Delay2Mess1Acc = Convert.ToInt32(_tbDelay2Mess1Acc.Value);
                 _config.Delay2Mess2Acc = Convert.ToInt32(_tbDelay2Mess2Acc.Value);
+                _config.PauseAt = Convert.ToInt32(_tbPauseAt.Value);
+                _config.PauseTime = Convert.ToInt32(_tbPauseTime.Value);
+                _config.MakeFriendWithStrangers = _tbMakeFriendWithStrangers.Checked;
+                _config.LogWhenSuccessful = _tbLogWhenSuccessful.Checked;
+
                 _config.Save();
             }
 
