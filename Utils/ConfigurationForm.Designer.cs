@@ -155,11 +155,69 @@
             this._tbPauseTime.TabIndex = 7;
 
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this._lMakeFriendWithStrangers);
+            this.groupBox2.Controls.Add(this._tbMakeFriendWithStrangers);
+            this.groupBox2.Controls.Add(this._lLogWhenSuccessful);
+            this.groupBox2.Controls.Add(this._tbLogWhenSuccessful);
+            this.groupBox2.Location = new System.Drawing.Point(6, 166);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(355, 100);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tùy chọn khác";
+
+            // 
+            // _lMakeFriendWithStrangers
+            // 
+            this._lMakeFriendWithStrangers.Location = new System.Drawing.Point(9, 25);
+            this._lMakeFriendWithStrangers.Name = "_lMakeFriendWithStrangers";
+            this._lMakeFriendWithStrangers.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this._lMakeFriendWithStrangers.Size = new System.Drawing.Size(226, 19);
+            this._lMakeFriendWithStrangers.TabIndex = 8;
+            this._lMakeFriendWithStrangers.Text = "Gửi kết bạn số lạ";
+            this._lMakeFriendWithStrangers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+            // 
+            // _tbMakeFriendWithStrangers
+            // 
+            this._tbMakeFriendWithStrangers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this._tbMakeFriendWithStrangers.Location = new System.Drawing.Point(242, 25);
+            this._tbMakeFriendWithStrangers.Name = "_tbMakeFriendWithStrangers";
+            this._tbMakeFriendWithStrangers.Size = new System.Drawing.Size(97, 20);
+            this._tbMakeFriendWithStrangers.TabIndex = 9;
+
+            // 
+            // _lLogWhenSuccessful
+            // 
+            this._lLogWhenSuccessful.Location = new System.Drawing.Point(9, 55);
+            this._lLogWhenSuccessful.Name = "_lLogWhenSuccessful";
+            this._lLogWhenSuccessful.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this._lLogWhenSuccessful.Size = new System.Drawing.Size(226, 19);
+            this._lLogWhenSuccessful.TabIndex = 10;
+            this._lLogWhenSuccessful.Text = "Ghi log cả trường hợp thành công";
+            this._lLogWhenSuccessful.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+            // 
+            // _tbLogWhenSuccessful
+            // 
+            this._tbLogWhenSuccessful.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this._tbLogWhenSuccessful.Location = new System.Drawing.Point(242, 55);
+            this._tbLogWhenSuccessful.Name = "_tbLogWhenSuccessful";
+            this._tbLogWhenSuccessful.Size = new System.Drawing.Size(97, 20);
+            this._tbLogWhenSuccessful.TabIndex = 11;
+
+            // 
             // _bCancel
             // 
             this._bCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._bCancel.Location = new System.Drawing.Point(475, 120);
+            this._bCancel.Location = new System.Drawing.Point(285, 290);
             this._bCancel.Name = "_bCancel";
             this._bCancel.Size = new System.Drawing.Size(75, 23);
             this._bCancel.TabIndex = 23;
@@ -170,7 +228,7 @@
             // _bSave
             // 
             this._bSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._bSave.Location = new System.Drawing.Point(395, 120);
+            this._bSave.Location = new System.Drawing.Point(205, 290);
             this._bSave.Name = "_bSave";
             this._bSave.Size = new System.Drawing.Size(75, 23);
             this._bSave.TabIndex = 24;
@@ -185,8 +243,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._bCancel;
-            this.ClientSize = new System.Drawing.Size(365, 300);
+            this.ClientSize = new System.Drawing.Size(370, 330);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this._bSave);
             this.Controls.Add(this._bCancel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -198,6 +257,9 @@
             
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
 
             this.ResumeLayout(false);
             this.PerformLayout();
