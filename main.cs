@@ -23,7 +23,8 @@ namespace transtrusttool
         private SamplesConfiguration _configuration;
         public main()
         {
-            logWriter = new LogWriter("Open app...");
+            logWriter = new LogWriter("=============================================================");
+            logWriter.LogWrite("Open App...");
             InitializeComponent();
             thisForm = this;
         }
@@ -86,7 +87,8 @@ namespace transtrusttool
                 MessageBox.Show("Bạn phải nhập nội dung tin nhắn!", "Thông báo!", MessageBoxButtons.OK);
                 return;
             }
-            logWriter.LogWrite("btnAuto1_Click...");
+
+            logWriter.LogWrite("START ...");
             Loading(false);
             if (autoRun != null)
             {
@@ -109,19 +111,25 @@ namespace transtrusttool
                         if (check)
                         {
                             arr[1] = "Thành công";
+                            if (this.Configuration.LogWhenSuccessful)
+                            {
+                                logWriter.LogWrite(arr[0] + " ---------------------- true");
+                            }
                         }
                         else
                         {
                             arr[1] = "Thất bại";
+                            logWriter.LogWrite(arr[0] + " ---------------------- false");
                         }
 
                         itm = new ListViewItem(arr);
                         this.listView1.Items.Add(itm);
                     }
                 }
+
                 autoRun.Dispose();
                 Loading(true);
-                logWriter.LogWrite("End...");
+                logWriter.LogWrite("END");
                 MessageBox.Show("Hoàn thành gửi tin!", "Thông báo!", MessageBoxButtons.OK);
                 return;
             }
@@ -138,6 +146,7 @@ namespace transtrusttool
         {
             if (MessageBox.Show("Bạn muốn thoát khỏi ứng dụng!?", "Close Application", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                logWriter.LogWrite("Exit");
                 System.Windows.Forms.Application.Exit();
             }
         }
