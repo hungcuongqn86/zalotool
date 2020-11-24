@@ -89,6 +89,7 @@
             this._tbDelay2Mess1Acc.Location = new System.Drawing.Point(242, 25);
             this._tbDelay2Mess1Acc.Name = "_tbDelay2Mess1Acc";
             this._tbDelay2Mess1Acc.Size = new System.Drawing.Size(97, 20);
+            this._tbDelay2Mess1Acc.Maximum = 1000;
             this._tbDelay2Mess1Acc.TabIndex = 1;
 
             // 
@@ -110,6 +111,7 @@
             this._tbDelay2Mess2Acc.Location = new System.Drawing.Point(242, 55);
             this._tbDelay2Mess2Acc.Name = "_tbDelay2Mess2Acc";
             this._tbDelay2Mess2Acc.Size = new System.Drawing.Size(97, 20);
+            this._tbDelay2Mess2Acc.Maximum = 1000;
             this._tbDelay2Mess2Acc.TabIndex = 3;
 
             // 
@@ -120,7 +122,7 @@
             this._lPauseAt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this._lPauseAt.Size = new System.Drawing.Size(226, 19);
             this._lPauseAt.TabIndex = 4;
-            this._lPauseAt.Text = "Gửi cho bao nhiêu số thì ngắt quãng";
+            this._lPauseAt.Text = "Gửi cho bn số thì ngắt quãng";
             this._lPauseAt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
             // 
@@ -131,6 +133,7 @@
             this._tbPauseAt.Location = new System.Drawing.Point(242, 85);
             this._tbPauseAt.Name = "_tbPauseAt";
             this._tbPauseAt.Size = new System.Drawing.Size(97, 20);
+            this._tbPauseAt.Maximum = 100;
             this._tbPauseAt.TabIndex = 5;
 
             // 
@@ -152,6 +155,7 @@
             this._tbPauseTime.Location = new System.Drawing.Point(242, 115);
             this._tbPauseTime.Name = "_tbPauseTime";
             this._tbPauseTime.Size = new System.Drawing.Size(97, 20);
+            this._tbPauseTime.Maximum = 1000;
             this._tbPauseTime.TabIndex = 7;
 
             // 
