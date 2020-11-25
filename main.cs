@@ -102,8 +102,14 @@ namespace transtrusttool
                     string line = "";
                     string content = this.textBox2.Text;
                     string photo = this.textBox3.Text;
+                    int index = 0;
+
                     while ((line = reader.ReadLine()) != null)
                     {
+                        if (index > 0 && this.Configuration.Delay2Mess2Acc > 0)
+                        {
+                            System.Threading.Thread.Sleep(1000 * this.Configuration.Delay2Mess2Acc);
+                        }
                         bool check = autoRun.RunAuto(line, content, photo, this.Configuration.Delay2Mess1Acc);
                         string[] arr = new string[4];
                         ListViewItem itm;
@@ -124,6 +130,7 @@ namespace transtrusttool
 
                         itm = new ListViewItem(arr);
                         this.listView1.Items.Add(itm);
+                        index++;
                     }
                 }
 
