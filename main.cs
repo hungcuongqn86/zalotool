@@ -106,10 +106,25 @@ namespace transtrusttool
 
                     while ((line = reader.ReadLine()) != null)
                     {
-                        if (index > 0 && this.Configuration.Delay2Mess2Acc > 0)
+                        if (index > 0)
                         {
-                            System.Threading.Thread.Sleep(1000 * this.Configuration.Delay2Mess2Acc);
+                            if (this.Configuration.Delay2Mess2Acc > 0)
+                            {
+                                System.Threading.Thread.Sleep(1000 * this.Configuration.Delay2Mess2Acc);
+                            }
+
+                            if (this.Configuration.PauseAt > 0 && this.Configuration.PauseTime > 0)
+                            {
+                                if (index % this.Configuration.PauseAt == 0)
+                                {
+                                    if (this.Configuration.PauseTime > this.Configuration.Delay2Mess2Acc)
+                                    {
+                                        System.Threading.Thread.Sleep(1000 * (this.Configuration.PauseTime - this.Configuration.Delay2Mess2Acc));
+                                    }
+                                }
+                            }
                         }
+
                         bool check = autoRun.RunAuto(line, content, photo, this.Configuration.Delay2Mess1Acc);
                         string[] arr = new string[4];
                         ListViewItem itm;
