@@ -125,10 +125,23 @@ namespace transtrusttool
                             }
                         }
 
-                        bool check = autoRun.RunAuto(line, content, photo, this.Configuration.Delay2Mess1Acc, this.Configuration.MakeFriendWithStrangers);
+                        string[] input = line.Split(',');
+                        string phonenumber = input.First();
+                        string[] paramsData = input.Skip(1).ToArray();
+                        bool check = false;
+                        try
+                        {
+                            string contentFormat = string.Format(content, paramsData);
+                            check = autoRun.RunAuto(phonenumber, contentFormat, photo, this.Configuration.Delay2Mess1Acc, this.Configuration.MakeFriendWithStrangers);
+                        }
+                        catch (Exception error)
+                        {
+                            // MessageBox.Show(error.Message.ToString());
+                        }
+                        
                         string[] arr = new string[4];
                         ListViewItem itm;
-                        arr[0] = line;
+                        arr[0] = phonenumber;
                         if (check)
                         {
                             arr[1] = "Thành công";

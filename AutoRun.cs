@@ -156,6 +156,14 @@ namespace transtrusttool
                             if (btnAddFriend.Count > 0)
                             {
                                 btnAddFriend.First().FindElement(By.XPath("..")).Click();
+                                System.Threading.Thread.Sleep(2000);
+                                // _sendRequest
+                                ReadOnlyCollection<IWebElement> btnsendRequest = chromeDriver.FindElements(By.Id("_sendRequest"));
+                                if (btnsendRequest.Count > 0)
+                                {
+                                    btnsendRequest.First().Click();
+                                    System.Threading.Thread.Sleep(3000);
+                                }
                             }
                         }
 
