@@ -123,7 +123,7 @@ namespace transtrusttool
             }
         }
 
-        public bool RunAuto(string phone, string content, string photo)
+        public bool RunAuto(string phone, string content, string photo, int delay2Mess1Acc)
         {
             bool res = false;
             // SendKeys phone
@@ -165,6 +165,12 @@ namespace transtrusttool
                             // send-photo-btn
                             if (photo.Trim().Length > 0)
                             {
+                                // delay2Mess1Acc
+                                if (delay2Mess1Acc > 0)
+                                {
+                                    System.Threading.Thread.Sleep(1000 * delay2Mess1Acc);
+                                }
+
                                 IWebElement sendPhotoInput = chromeDriver.FindElement(By.Id("file"));
                                 if (sendPhotoInput != null)
                                 {

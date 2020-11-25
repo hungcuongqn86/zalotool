@@ -104,7 +104,7 @@ namespace transtrusttool
                     string photo = this.textBox3.Text;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        bool check = autoRun.RunAuto(line, content, photo);
+                        bool check = autoRun.RunAuto(line, content, photo, this.Configuration.Delay2Mess1Acc);
                         string[] arr = new string[4];
                         ListViewItem itm;
                         arr[0] = line;
