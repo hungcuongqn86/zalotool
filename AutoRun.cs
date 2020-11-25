@@ -123,7 +123,7 @@ namespace transtrusttool
             }
         }
 
-        public bool RunAuto(string phone, string content, string photo, int delay2Mess1Acc)
+        public bool RunAuto(string phone, string content, string photo, int delay2Mess1Acc, bool makeFriendWithStrangers)
         {
             bool res = false;
             // SendKeys phone
@@ -140,7 +140,7 @@ namespace transtrusttool
 
                 clearWebField(eSearchInput.First());
                 eSearchInput.First().SendKeys(phone);
-                System.Threading.Thread.Sleep(2000);
+                System.Threading.Thread.Sleep(3000);
                 try
                 {
                     ReadOnlyCollection<IWebElement> searchResultList = chromeDriver.FindElements(By.Id("searchResultList"));
@@ -149,6 +149,17 @@ namespace transtrusttool
                     {
                         firtItem.Click();
                         System.Threading.Thread.Sleep(1000);
+                        // MakeFriendWithStrangers
+                        if (makeFriendWithStrangers)
+                        {
+                            ReadOnlyCollection<IWebElement> btnAddFriend = chromeDriver.FindElements(By.XPath("//span[contains(@class, 'txt-add-friend-banner') and @data-translate-inner='STR_PROFILE_ADD_FRIEND']"));
+                            if (btnAddFriend.Count > 0)
+                            {
+                                btnAddFriend.First().FindElement(By.XPath("..")).Click();
+                            }
+                        }
+
+                        // sent message
                         IWebElement chatbox = chromeDriver.FindElement(By.Id("input_line_0"));
                         if (chatbox != null)
                         {

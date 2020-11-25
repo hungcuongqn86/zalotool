@@ -125,7 +125,7 @@ namespace transtrusttool
                             }
                         }
 
-                        bool check = autoRun.RunAuto(line, content, photo, this.Configuration.Delay2Mess1Acc);
+                        bool check = autoRun.RunAuto(line, content, photo, this.Configuration.Delay2Mess1Acc, this.Configuration.MakeFriendWithStrangers);
                         string[] arr = new string[4];
                         ListViewItem itm;
                         arr[0] = line;
