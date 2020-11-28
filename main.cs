@@ -76,6 +76,7 @@ namespace transtrusttool
 
         private void BtnAuto1_Click(object sender, EventArgs e)
         {
+            logWriter.filename = "logs.txt";
             if (this.textBox1.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Bạn phải chọn file danh sách số điện thoại!", "Thông báo!", MessageBoxButtons.OK);
@@ -99,6 +100,7 @@ namespace transtrusttool
             {
                 using (StreamReader reader = File.OpenText(this.textBox1.Text))
                 {
+                    logWriter.filename = string.Format("log-{0:yyyy-MM-dd_hh-mm-ss-tt}.txt", DateTime.Now);
                     string line = "";
                     string content = this.textBox2.Text;
                     string photo = this.textBox3.Text;
@@ -160,6 +162,7 @@ namespace transtrusttool
                         this.listView1.Items.Add(itm);
                         index++;
                     }
+                    logWriter.filename = "logs.txt";
                 }
 
                 autoRun.Dispose();

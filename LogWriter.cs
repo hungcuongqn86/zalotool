@@ -11,6 +11,7 @@ namespace transtrusttool
     public class LogWriter
     {
         private string m_exePath = string.Empty;
+        public string filename = "log.txt";
         public LogWriter(string logMessage)
         {
             LogWrite(logMessage);
@@ -20,7 +21,11 @@ namespace transtrusttool
             m_exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             try
             {
-                using (StreamWriter w = File.AppendText(m_exePath + "\\" + "log.txt"))
+                string logPath = m_exePath + "\\logs";
+                bool exists = System.IO.Directory.Exists(logPath);
+                if (!exists)
+                    System.IO.Directory.CreateDirectory(logPath);
+                using (StreamWriter w = File.AppendText(logPath + "\\" + filename))
                 {
                     Log(logMessage, w);
                 }
