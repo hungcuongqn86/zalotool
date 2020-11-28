@@ -11,7 +11,7 @@ namespace transtrusttool
     public class LogWriter
     {
         private string m_exePath = string.Empty;
-        public string filename = "log.txt";
+        public string filename = "logs.txt";
         public LogWriter(string logMessage)
         {
             LogWrite(logMessage);
