@@ -230,5 +230,10 @@ namespace transtrusttool
                 MessageBox.Show(error.Message.ToString());
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.textBox3.Text = "";
+        }
     }
 }
