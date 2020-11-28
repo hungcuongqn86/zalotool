@@ -166,6 +166,8 @@
             // 
             // main
             // 
+            this.listView1.Columns.Add("Số điện thoại", 400);
+            this.listView1.Columns.Add("Trạng thái", 150);
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 637);
