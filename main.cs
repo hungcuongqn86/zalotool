@@ -11,6 +11,7 @@ using transtrusttool.Utils;
 using System.Data.OleDb;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Collections.Generic;
 
 namespace transtrusttool
 {
@@ -126,8 +127,7 @@ namespace transtrusttool
                                 }
                             }
                         }
-
-                        string[] input = line.Split(',');
+                        List<String> input = new List<String>(line.Split("###".ToCharArray(), StringSplitOptions.RemoveEmptyEntries));
                         string phonenumber = input.First();
                         string[] paramsData = input.Skip(1).ToArray();
                         bool check = false;
