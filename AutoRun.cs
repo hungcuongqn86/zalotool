@@ -4,6 +4,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,9 +62,20 @@ namespace transtrusttool
             }
         }
 
+        private static void Delay(int Time_delay)
+        {
+            int i = 0;
+            System.Timers.Timer _delayTimer = new System.Timers.Timer();
+            _delayTimer.Interval = Time_delay;
+            _delayTimer.AutoReset = false; //so that it only calls the method once
+            _delayTimer.Elapsed += (s, args) => i = 1;
+            _delayTimer.Start();
+            while (i == 0) { };
+        }
+
         private void login()
         {
-            System.Threading.Thread.Sleep(3000);
+            Delay(3000);
             /*
             string url = chromeDriver.Url;
             if (url.Contains("id.zalo.me/account"))
@@ -135,12 +147,12 @@ namespace transtrusttool
                 if (eClearBtn.Count > 0)
                 {
                     eClearBtn.First().Click();
-                    System.Threading.Thread.Sleep(1000);
+                    Delay(1000);
                 }
 
                 clearWebField(eSearchInput.First());
                 eSearchInput.First().SendKeys(phone);
-                System.Threading.Thread.Sleep(3000);
+                Delay(3000);
                 try
                 {
                     ReadOnlyCollection<IWebElement> searchResultList = chromeDriver.FindElements(By.Id("searchResultList"));
@@ -148,7 +160,7 @@ namespace transtrusttool
                     if (firtItem != null)
                     {
                         firtItem.Click();
-                        System.Threading.Thread.Sleep(1000);
+                        Delay(1000);
                         // MakeFriendWithStrangers
                         if (makeFriendWithStrangers)
                         {
@@ -156,13 +168,13 @@ namespace transtrusttool
                             if (btnAddFriend.Count > 0)
                             {
                                 btnAddFriend.First().FindElement(By.XPath("..")).Click();
-                                System.Threading.Thread.Sleep(2000);
+                                Delay(2000);
                                 // _sendRequest
                                 ReadOnlyCollection<IWebElement> btnsendRequest = chromeDriver.FindElements(By.Id("_sendRequest"));
                                 if (btnsendRequest.Count > 0)
                                 {
                                     btnsendRequest.First().Click();
-                                    System.Threading.Thread.Sleep(3000);
+                                    Delay(3000);
                                 }
                             }
                         }
@@ -173,7 +185,7 @@ namespace transtrusttool
                         {
                             chatbox.Click();
                             chatbox.SendKeys(content);
-                            System.Threading.Thread.Sleep(1000);
+                            Delay(1000);
                             IWebElement sendBtn = chromeDriver.FindElement(By.Id("sendBtn"));
                             if (sendBtn != null)
                             {
@@ -187,7 +199,7 @@ namespace transtrusttool
                                 // delay2Mess1Acc
                                 if (delay2Mess1Acc > 0)
                                 {
-                                    System.Threading.Thread.Sleep(1000 * delay2Mess1Acc);
+                                    Delay(1000 * delay2Mess1Acc);
                                 }
 
                                 IWebElement sendPhotoInput = chromeDriver.FindElement(By.Id("file"));
@@ -196,7 +208,7 @@ namespace transtrusttool
                                     Unhide(chromeDriver, sendPhotoInput);
                                     // sendPhotoInput.Click();
                                     sendPhotoInput.SendKeys(photo);
-                                    System.Threading.Thread.Sleep(5000);
+                                    Delay(5000);
                                 }
                             }
 

@@ -12,6 +12,8 @@ using System.Data.OleDb;
 using System.Text.RegularExpressions;
 using System.Data;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Timers;
 
 namespace transtrusttool
 {
@@ -75,6 +77,17 @@ namespace transtrusttool
             button1.Enabled = status;
         }
 
+        private static void Delay(int Time_delay)
+        {
+            int i = 0;
+            System.Timers.Timer _delayTimer = new System.Timers.Timer();
+            _delayTimer.Interval = Time_delay;
+            _delayTimer.AutoReset = false; //so that it only calls the method once
+            _delayTimer.Elapsed += (s, args) => i = 1;
+            _delayTimer.Start();
+            while (i == 0) { };
+        }
+
         private void BtnAuto1_Click(object sender, EventArgs e)
         {
             logWriter.filename = "logs.txt";
@@ -113,7 +126,7 @@ namespace transtrusttool
                         {
                             if (this.Configuration.Delay2Mess2Acc > 0)
                             {
-                                System.Threading.Thread.Sleep(1000 * this.Configuration.Delay2Mess2Acc);
+                                Delay(1000 * this.Configuration.Delay2Mess2Acc);
                             }
 
                             if (this.Configuration.PauseAt > 0 && this.Configuration.PauseTime > 0)
@@ -122,7 +135,7 @@ namespace transtrusttool
                                 {
                                     if (this.Configuration.PauseTime > this.Configuration.Delay2Mess2Acc)
                                     {
-                                        System.Threading.Thread.Sleep(1000 * (this.Configuration.PauseTime - this.Configuration.Delay2Mess2Acc));
+                                        Delay(1000 * (this.Configuration.PauseTime - this.Configuration.Delay2Mess2Acc));
                                     }
                                 }
                             }
